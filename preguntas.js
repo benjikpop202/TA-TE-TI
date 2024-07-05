@@ -1,6 +1,7 @@
-import { handleClick } from './main.js'
+import { handleClick, gameState } from './main.js'
  let pregunta = document.getElementById("pregunta")
  let botones = document.querySelectorAll("button")
+ let turno = document.getElementById("turno")
  let btn1 = document.getElementById("opcion1"),
  btn2 = document.getElementById("opcion2"), 
  btn3 = document.getElementById("opcion3")
@@ -19,6 +20,7 @@ import { handleClick } from './main.js'
       }
 
  export const Prandom = (arreglo, cell, index)=>{
+    turno.textContent = gameState.currentPlayer
     habilitar()
     botones.forEach(boton =>{ boton.style.background = "rgb(38, 159, 240)"})
     let m = Math.floor(Math.random() * arreglo.length);
@@ -50,6 +52,8 @@ import { handleClick } from './main.js'
                 boton.style.backgroundColor = "red"
                 setTimeout(()=>{
                     Prandom(preguntas, cell, index)
+                    gameState.currentPlayer = gameState.currentPlayer == "✖" ? "⭕" : "✖";
+                    turno.textContent = gameState.currentPlayer
                 },500)
             }
         })

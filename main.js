@@ -1,6 +1,8 @@
 import {Prandom, preguntas} from './preguntas.js'
 let board = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "✖";
+export const gameState = {
+  currentPlayer: "✖"
+};
 
 const cells = document.querySelectorAll(".col");
 
@@ -14,12 +16,12 @@ const cells = document.querySelectorAll(".col");
   });
   
  export function handleClick(cell, index) {
-  board[index] = currentPlayer;
-  cell.textContent = currentPlayer;
+  board[index] = gameState.currentPlayer;
+  cell.textContent = gameState.currentPlayer;
   
     if (checkWin()) {
       setTimeout(() => {
-        alert(`${currentPlayer} ha ganado!`);
+        alert(`${gameState.currentPlayer} ha ganado!`);
         location.reload()
       }, 100);
       return;
@@ -33,7 +35,7 @@ const cells = document.querySelectorAll(".col");
       return;
     }
   
-    currentPlayer = currentPlayer == "✖" ? "⭕" : "✖";
+    gameState.currentPlayer = gameState.currentPlayer == "✖" ? "⭕" : "✖";  
   }
   
   function checkWin() {

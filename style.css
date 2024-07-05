@@ -8,8 +8,25 @@ main{
 .navbar-brand{
     font-size: 2rem;
 }
+#turno{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    left: 85%;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 3px solid blueviolet;
+    background-color: #333;
+}
 #seccion1{
     width: 30%;
+}
+#board{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #opciones{
     width: 100%;
